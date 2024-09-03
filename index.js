@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const router = require('./routes/routes'); 
+const router = require('./routes/routes');
 const connectDB = require('./config/db');
 require('dotenv').config()
 const cookieParser = require('cookie-parser')
@@ -11,7 +11,7 @@ const port = process.env.PORT || 5000;
 
 // middleware 
 app.use(cors({
-    origin: process.env.FRONTEND_PRODUCTION_URL || process.env.FRONTEND_URL,
+    origin: process.env.FRONTEND_URL,
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization', 'x-csrf-token'],
