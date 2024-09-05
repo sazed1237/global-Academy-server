@@ -10,6 +10,7 @@ const enrollController = require('../controller/enrollments/enroll');
 const getEnrollmentsController = require('../controller/enrollments/getEnrollments');
 const deleteUserController = require('../controller/admin/deleteUser');
 const deleteEnrollmentController = require('../controller/admin/deleteEnrollment');
+const updateStatus = require('../controller/admin/updateStatus');
 const router = express.Router()
 
 
@@ -22,6 +23,7 @@ router.get('/user/admin/:email', verifyToken, isAdminController)
 // admin route
 router.get('/users', verifyToken, verifyAdmin, allUsersController)
 router.get('/enrollments', verifyToken, verifyAdmin, getEnrollmentsController)
+router.post('/update-status/:id', verifyToken, verifyAdmin, updateStatus) 
 router.delete('/user/:id', verifyToken, verifyAdmin, deleteUserController)
 router.delete('/enrollment/:id', verifyToken, verifyAdmin, deleteEnrollmentController)
 

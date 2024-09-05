@@ -2,15 +2,15 @@ const enrollModel = require("../../models/enrollModel")
 
 const enrollController = async (req, res) => {
     try {
-        const { email, course } = req.body
+        const { number } = req.body
 
-        const query = { email: email, course: course }
+        const query = { number: number }
         const existEnroll = await enrollModel.findOne(query)
         console.log("exist enroll", existEnroll)
 
         if (existEnroll) {
             return res.json({
-                message: "You have already enroll this course!",
+                message: "You have already enroll this number!",
                 success: false,
                 error: true,
                 data: existEnroll
@@ -20,6 +20,8 @@ const enrollController = async (req, res) => {
         const enrollData = {
             ...req.body
         }
+
+        console.log(enrollData)
 
         const newEnroll = new enrollModel(enrollData)
         const saveEnroll = await newEnroll.save()

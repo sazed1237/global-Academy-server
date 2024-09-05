@@ -5,7 +5,9 @@ const enrollSchema = new mongoose.Schema({
     name: String,
     email: String,
     number: Number,
-    address: String
+    address: String,
+    status: String
+
 }, {
     timestamps: true
 })

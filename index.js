@@ -11,7 +11,8 @@ const port = process.env.PORT || 5000;
 
 // middleware 
 app.use(cors({
-    origin: process.env.FRONTEND_URL,
+    origin: process.env.FRONTEND_PRODUCTION_URL, 
+    // origin: process.env.FRONTEND_URL, 
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization', 'x-csrf-token'],
